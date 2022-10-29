@@ -10,3 +10,10 @@ def is_element_at(index: int, char: chr, string: str) -> bool:
 
 def count_occurence(char: chr, string: str) -> int:
     return sum((char == original ) for original in string)
+
+def contains(char: chr, string: str) -> bool:
+    return (char in string)
+
+def contains(substring: str, string: str) -> bool:
+    return (substring in string)
+
