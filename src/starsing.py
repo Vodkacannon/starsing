@@ -1,13 +1,17 @@
 # Some of these functions may be reinventing the wheel.
 
+from math import log2
+from math import log
+from collections import Counter
+
 def find_index_of_1st(char: chr, string: str) -> int:
-    for index in range(len(string)):
-        if string[index] == char:
+    for i in range(len(string)):
+        if string[i] == char:
             return index
 
         
-def is_element_at(index: int, char: chr, string: str) -> bool:
-    return (string[index] == char)
+def is_element_at(i: int, char: chr, string: str) -> bool:
+    return (string[i] == char)
 
 
 def count_occurence(char: chr, string: str) -> int:
@@ -23,9 +27,9 @@ def contains(substring: str, string: str) -> bool:
 
 
 def is_homogenous(string: str) -> bool:
-    for index in range(len(string)):
+    for i in range(len(string)):
         if string[i] == [i + 1]:
-            continue;
+            continue
         else:
             return False
     return True
@@ -51,6 +55,45 @@ def is_only_numeric(string: str) -> bool:
 
 def is_alphanumeric(string: str) -> bool:
     for char in string:
-        if char.isdigit() and char.isalpha():
+        if char.isdigit() or char.isalpha():
             continue
         else:
+            return False
+    return True
+
+
+def is_non_alphanumeric(string: str) -> bool:
+    for char in string:
+        if not(char.isdigit() and char.isalpha()):
+            return False
+    return True
+
+def remove_front_and_back_whitespace():
+    pass
+
+# This function has not correct output.
+def word_count(string: str, separator=' ') -> int:
+    count = 0
+    for i in range(len(string)):
+        if (string[i] == separator and i == 0) or string[i] != separator:
+            continue
+        if string[]
+        if string[i] == separator:
+            count += 1
+    return count
+
+
+def histogram(string: str) -> dict:
+    histogram = {}
+    for i in range(len(string)):
+        histogram[i] = histogram.get(i, 0) + 1
+    return histogram
+
+
+# Not making right output.
+def get_entropy(string: str) -> bool:
+    my_histogram = histogram(string)#Counter(string)
+    probs = my_histogram.values()
+    return sum((prob * log2(prob)) for prob in probs)
+
+print(word_count(" 1 2 3 4"))
