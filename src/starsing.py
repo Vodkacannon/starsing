@@ -68,8 +68,10 @@ def is_non_alphanumeric(string: str) -> bool:
             return False
     return True
 
+
 def remove_front_and_back_whitespace():
     pass
+
 
 # This function has not correct output.
 def word_count(string: str, separator=' ') -> int:
@@ -95,5 +97,3 @@ def get_entropy(string: str) -> bool:
     my_histogram = histogram(string)#Counter(string)
     probs = my_histogram.values()
     return sum((prob * log2(prob)) for prob in probs)
-
-print(word_count(" 1 2 3 4"))
